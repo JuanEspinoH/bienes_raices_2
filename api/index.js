@@ -27,7 +27,7 @@ app.use(csrf({ cookie: { httpOnly: true } }))
 
 // AQUI EMPIEZAN LAS RUTAS
 
-app.use('/api/auth', authRoutes)
+app.use('/auth', authRoutes)
 
 app.listen(3000, () => {
   console.log(`SE INICIO EL SERVIDOR ${process.env.PORT} `)
