@@ -8,7 +8,10 @@ dotenv.config()
 const app = express()
 
 app.get('/', async (req, res) => {
-  return res.json({ msg: 'test' })
+  return res.json({ msg: 'test home' })
+})
+app.get('/test', async (req, res) => {
+  return res.json({ msg: 'test 2' })
 })
 
 app.listen(3000, () => {
