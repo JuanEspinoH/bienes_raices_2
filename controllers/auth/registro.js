@@ -1,12 +1,17 @@
+import Usuario from '../../models/Usuario.js'
+import { userValidations } from '../../utils/validations.js'
+import { enviarEmail } from '../../utils/emailSender.js'
+import { generarToken } from '../../utils/generarToken.js'
+
 const registro = async (req, res) => {
   const { nombre, email, password, repetir_password } = req.body
 
-  //   const checkUserData = await userValidations(req)
+  const checkUserData = await userValidations(req)
 
   if (checkUserData.errors.length !== 0) {
     return res.render('auth/sign-up', {
       pagina: 'Crear Cuenta',
-      //   errores: checkUserData.errors,
+      errores: checkUserData.errors,
       csrfToken: req.csrfToken(),
       usuario: {
         nombre: req.body.nombre,
@@ -17,11 +22,7 @@ const registro = async (req, res) => {
     })
   }
   try {
-    const checkExistingUser = await prisma.usuario.findFirst({
-      where: {
-        email,
-      },
-    })
+    const checkExistingUser = await Usuario.findOne({ where: { email } })
     if (checkExistingUser !== null) {
       return res.render('auth/sign-up', {
         pagina: 'Crear Cuenta',
@@ -37,15 +38,8 @@ const registro = async (req, res) => {
     }
 
     const token = generarToken()
-    const passwordHasheada = await argon2.hash(password)
-    const newUser = await prisma.usuario.create({
-      data: {
-        nombre,
-        email,
-        password: passwordHasheada,
-        token,
-      },
-    })
+
+    const newUser = await Usuario.create({ nombre, email, password, token })
 
     await enviarEmail({ nombre, email, token })
   } catch (error) {
@@ -58,3 +52,5 @@ const registro = async (req, res) => {
       'Hemos enviado un Email de confirmacion, presiona el enlace en el correo para confirmar y continuar.',
   })
 }
+
+export default registro

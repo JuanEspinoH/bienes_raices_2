@@ -1,10 +1,16 @@
 import { DataTypes } from 'sequelize'
-import db from '../database/db'
+import db from '../database/db.js'
 import argon2 from 'argon2'
 
 const Usuario = db.define(
   'usuarios',
   {
+    id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+      allowNull: false,
+    },
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -18,12 +24,15 @@ const Usuario = db.define(
       allowNull: false,
     },
     token: DataTypes.STRING,
-    confirmado: DataTypes.BOOLEAN,
+    confirmado: { type: DataTypes.BOOLEAN, defaultValue: false },
+    createdAt: DataTypes.DATE,
+    updatedAt: { type: DataTypes.DATE, allowNull: true },
   },
   {
     hooks: {
       beforeCreate: async function (usuario) {
-        usuario.password = await argon2.hash(password)
+        const hashedPassword = await argon2.hash(usuario.password)
+        usuario.password = hashedPassword
       },
     },
   }

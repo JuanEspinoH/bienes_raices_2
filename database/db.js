@@ -3,6 +3,7 @@ dotenv.config()
 import { Sequelize } from 'sequelize'
 
 const db = new Sequelize(process.env.DATABASE_CONNECTION_URL, {
+  logging: false,
   dialect: 'postgres',
   define: {
     timestamps: true,

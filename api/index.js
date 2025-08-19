@@ -27,8 +27,13 @@ app.use(csrf({ cookie: { httpOnly: true } }))
 
 // AQUI EMPIEZAN LAS RUTAS
 
+// app.use('/', async (req, res) => {
+//   return res.json({
+//     msg: 'Home',
+//   })
+// })
 app.use('/auth', authRoutes)
 
 app.listen(3000, () => {
-  console.log(`SE INICIO EL SERVIDOR ${process.env.PORT} `)
+  console.log(`SE INICIO EL SERVIDOR 3000 `)
 })
