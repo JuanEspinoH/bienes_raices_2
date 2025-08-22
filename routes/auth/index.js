@@ -1,16 +1,23 @@
-import { formularioSignUp, registro } from '../../controllers/auth/index.js'
+import {
+  formularioSignUp,
+  registro,
+  formularioLogin,
+  autenticar,
+  formularioOlvidarContraseña,
+  resetPassword,
+} from '../../controllers/auth/index.js'
 import { Router } from 'express'
 
 const router = Router()
 
-// router.get('/login', formularioLogin)
-// router.post('/login', autenticar)
+router.get('/login', formularioLogin)
+router.post('/login', autenticar)
 
 router.get('/sign-up', formularioSignUp)
 router.post('/sign-up', registro)
 
-// router.get('/olvide-password', formularioOlvidarContraseña)
-// router.post('/olvide-password', resetPassword)
+router.get('/olvide-password', formularioOlvidarContraseña)
+router.post('/olvide-password', resetPassword)
 
 // router.get('/mensaje', confirmar)
 router.get('/confirmar/:token', async (req, res) => {

@@ -39,7 +39,7 @@ const registro = async (req, res) => {
 
     const token = generarToken()
 
-    const newUser = await Usuario.create({ nombre, email, password, token })
+    await Usuario.create({ nombre, email, password, token })
 
     await enviarEmail({ nombre, email, token })
   } catch (error) {
