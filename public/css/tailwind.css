@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.leaflet-container a {
+  color: #fffdfd;
+}
+@layer components {
+  .boton-primario {
+    @apply bg-emerald-800 hover:bg-emerald-600;
+    @apply transition;
+    @apply delay-75;
+    @apply duration-100;
+    @apply ease-in-out;
+  }
+
+  .transition-primario {
+    @apply transition;
+    @apply delay-75;
+    @apply duration-100;
+    @apply ease-in-out;
+  }
+}

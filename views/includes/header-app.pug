@@ -1,0 +1,46 @@
+header(class="bg-emerald-900  py-4 px-7 ")
+    if usuario
+        div(class=" mx-auto   flex justify-between items-center")
+            div(class="flex justify-center items-center flex-row gap-5")
+                a(href="/")
+                    h1(class="text-2xl text-white font-extrabold text-center") Bienes
+                        span(class="font-normal") Raices
+                div(class="flex justify-between items-center flex-row gap-1" )
+                    p(class="text-xl text-white p-0") Usuario:  
+                    p(class="text-xl text-white p-0")=usuario.nombre 
+            
+            nav(class="my-5 text-sm md:flex md:items-center hidden  md:gap-3 font-bold text-white")
+                a(href="/mis-propiedades") Mis propiedades
+                a(href="#") Mis perfil
+                form(action="/auth/cerrar-sesion" method="POST")
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    input(type="submit" value="Cerrar Sesion" class=" py-2 px-10 rounded-lg cursor-pointer boton-primario")
+
+    
+    else
+        div(class=" mx-auto   flex justify-between items-center")
+            a(href="/")
+                h1(class="text-2xl text-white font-extrabold text-center") Bienes
+                    span(class="font-normal") Raices
+            
+            nav(class="my-5 text-sm md:flex md:items-center hidden  md:gap-3 font-bold text-white")
+                a(class="" href="/auth/sign-up") Crear Cuenta
+                a(class="" href="/auth/login") Iniciar Sesion
+
+
+div(class="bg-emerald-700 py-4 px-7 hidden lg:block")
+    div(class=" mx-auto flex justify-between")
+        nav(class="flex gap-4 items-center")
+            a(href="/categorias/1" class="text-sm font-bold uppercase text-white hover:underline h-full w-full p-1  transition-primario flex justify-center items-center hover:bg-emerald-600 rounded-md") Departamentos
+            a(href="/categorias/2" class="text-sm font-bold uppercase text-white hover:underline h-full w-full p-1  transition-primario flex justify-center items-center hover:bg-emerald-600 rounded-md") Casas 
+            a(href="/categorias/3" class="text-sm font-bold uppercase text-white hover:underline h-full w-full p-1  transition-primario flex justify-center items-center hover:bg-emerald-600 rounded-md") Bodegas
+            a(href="/categorias/4" class="text-sm font-bold uppercase text-white hover:underline h-full w-full p-1  transition-primario flex justify-center items-center hover:bg-emerald-600 rounded-md")  Cabañas
+            a(href="/categorias/5" class="text-sm font-bold uppercase text-white hover:underline h-full w-full p-1  transition-primario flex justify-center items-center hover:bg-emerald-600 rounded-md") Terrenos
+        
+        form(action="/buscador" method="POST" class="flex gap-3 items-center")
+            input(type="hidden" name="_csrf" value=csrfToken)
+            label(class="text-sm uppercase font-bold text-white" for="termino") Busqueda 
+            input(class="p-2 rounded-lg shadow" type="text" id="termino" name="termino" placeholder="Buscar Propiedades")
+
+            input(class=" rounded-lg text-white uppercase font-bold p-2 boton-primario  cursor-pointer text-sm" type="submit" value="Buscar")
+
