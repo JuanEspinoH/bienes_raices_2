@@ -2,9 +2,9 @@ header(class="bg-emerald-900  py-4 px-7 ")
     if usuario
         div(class=" mx-auto   flex justify-between items-center")
             div(class="flex justify-center items-center flex-row gap-5")
-                a(href="/")
-                    h1(class="text-2xl text-white font-extrabold text-center") Bienes
-                        span(class="font-normal") Raices
+                a(href="/" class=" w-10 sm:w-14 md:w-1/4 lg:w-1/6  h-full")
+                    img(class="w-fit h-fit hidden md:block" src="/img/logo-letras.svg")
+                    img(class="w-full h-full  md:hidden" src="/img/logo.svg")
                 div(class="flex justify-between items-center flex-row gap-1" )
                     p(class="text-xl text-white p-0") Usuario:  
                     p(class="text-xl text-white p-0")=usuario.nombre 
@@ -19,9 +19,9 @@ header(class="bg-emerald-900  py-4 px-7 ")
     
     else
         div(class=" mx-auto   flex justify-between items-center")
-            a(href="/")
-                h1(class="text-2xl text-white font-extrabold text-center") Bienes
-                    span(class="font-normal") Raices
+            a(href="/" class=" w-10 sm:w-14 md:w-1/4 lg:w-1/6  h-full")
+                    img(class="w-fit h-fit hidden md:block" src="/img/logo-letras.svg")
+                    img(class="w-full h-full  md:hidden" src="/img/logo.svg")
             
             nav(class="my-5 text-sm md:flex md:items-center hidden  md:gap-3 font-bold text-white")
                 a(class="" href="/auth/sign-up") Crear Cuenta

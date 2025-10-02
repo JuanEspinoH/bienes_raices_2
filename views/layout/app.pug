@@ -5,11 +5,14 @@ html(lang="es")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Bienes Raices Express | #{pagina}
         link(rel="stylesheet", href="/css/app.css")
+        link(rel="icon" type="image/vnd.icon" href="img/favicon.ico")
         block styles
     body.min-h-screen
         include ../includes/header-app
 
         main(class="mx-auto container mt-10 px-2 ")
             block contenido
+        include ../includes/footer
+
         
         block scripts
