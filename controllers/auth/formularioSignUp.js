@@ -1,7 +1,7 @@
 const formularioSignUp = async (req, res) => {
   res.render('auth/sign-up', {
     autenticado: true,
-    pagina: 'Iniciar Sesion',
+    pagina: 'Crea tu cuenta',
     csrfToken: req.csrfToken(),
   })
 }

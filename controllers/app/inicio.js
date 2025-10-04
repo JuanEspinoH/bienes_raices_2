@@ -25,7 +25,10 @@ const inicio = async (req, res) => {
       where: {
         categoriaId: 1,
       },
-      include: [{ model: Precio, as: 'precio' }],
+      include: [
+        { model: Precio, as: 'precio' },
+        { model: Categoria, as: 'categoria' },
+      ],
       order: [['createdAt', 'DESC']],
     }),
     Propiedad.findAll({
@@ -33,7 +36,10 @@ const inicio = async (req, res) => {
       where: {
         categoriaId: 2,
       },
-      include: [{ model: Precio, as: 'precio' }],
+      include: [
+        { model: Precio, as: 'precio' },
+        { model: Categoria, as: 'categoria' },
+      ],
       order: [['createdAt', 'DESC']],
     }),
     Propiedad.findAll({
@@ -41,7 +47,10 @@ const inicio = async (req, res) => {
       where: {
         categoriaId: 3,
       },
-      include: [{ model: Precio, as: 'precio' }],
+      include: [
+        { model: Precio, as: 'precio' },
+        { model: Categoria, as: 'categoria' },
+      ],
       order: [['createdAt', 'DESC']],
     }),
     Propiedad.findAll({
@@ -49,7 +58,10 @@ const inicio = async (req, res) => {
       where: {
         categoriaId: 4,
       },
-      include: [{ model: Precio, as: 'precio' }],
+      include: [
+        { model: Precio, as: 'precio' },
+        { model: Categoria, as: 'categoria' },
+      ],
       order: [['createdAt', 'DESC']],
     }),
     Propiedad.findAll({
@@ -57,7 +69,10 @@ const inicio = async (req, res) => {
       where: {
         categoriaId: 5,
       },
-      include: [{ model: Precio, as: 'precio' }],
+      include: [
+        { model: Precio, as: 'precio' },
+        { model: Categoria, as: 'categoria' },
+      ],
       order: [['createdAt', 'DESC']],
     }),
   ])

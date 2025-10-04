@@ -5,9 +5,7 @@ block styles
 
 block contenido
     div(class="py-10")
-        h1.text-4xl.my-10.font-extrabold.text-center Bienes
-            span.font-normal Raices
-        h2.text-center.text-2xl.font-extrabold=pagina
+        h2.font-3xl.font-serif.text-center.text-2xl.font-extrabold=pagina
             div(id="geoErrorContainer" class="max-w-md mx-auto my-10 bg-red-600 hidden")
                     p(class= "text-white uppercase text-xs text-center placeholder p-2 mn-1 font-bold") Permite al navegador saber tu localizacion para mejor la experiencia de usuario.
         if errores
@@ -91,7 +89,7 @@ block contenido
                     input(type="hidden" name="lat" id="lat" value=data.lat ? data.lat : "")
                     input(type="hidden" name="lng" id="lng" value=data.lng ? data.lng : "")
                 //- button(type="submit" class="w-full bg-blue-500") Dar de alta
-                input(type="submit" value="Añadir Propiedad" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 cursor-pointer") 
+                input(type="submit" value="Añadir Imagen" class="w-full boton-primario text-white font-bold py-3 cursor-pointer") 
 
 block scripts
     script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")

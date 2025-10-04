@@ -16,7 +16,11 @@ const categoria = async (req, res) => {
     include: [
       {
         model: Precio,
-        as: Precio,
+        as: 'precio',
+      },
+      {
+        model: Categoria,
+        as: 'categoria',
       },
     ],
   })

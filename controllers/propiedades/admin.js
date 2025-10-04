@@ -21,6 +21,7 @@ const admin = async (req, res) => {
       Propiedad.findAll({
         limit: limit,
         offset: offset,
+        order: [['createdat', 'DESC']],
         where: {
           usuarioId: id,
         },

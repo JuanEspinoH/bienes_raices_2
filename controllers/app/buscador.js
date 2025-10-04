@@ -1,8 +1,9 @@
-import { Propiedad, Precio } from '../../models/index.js'
+import { Propiedad, Precio, Categoria } from '../../models/index.js'
 import { Sequelize } from 'sequelize'
 
 const buscador = async (req, res) => {
   const { termino } = req.body
+  console.log(termino)
 
   if (!termino.trim()) {
     const backURL = req.header('Referer') || '/'
@@ -16,7 +17,10 @@ const buscador = async (req, res) => {
           [Sequelize.Op.iLike]: `%${termino}%`,
         },
       },
-      include: [{ model: Precio, as: 'precio' }],
+      include: [
+        { model: Precio, as: 'precio' },
+        { model: Categoria, as: 'categoria' },
+      ],
     })
 
     return res.render('busqueda', {
